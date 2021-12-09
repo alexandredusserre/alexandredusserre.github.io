@@ -1,0 +1,13 @@
+.content {
+    display: flex;
+}
+
+/* head */
+
+
+
+/*body*/
+
+#map {
+    border: 2px solid green;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        
+        <div class="haut_page" style="display: flex;">
+            <img src="../../../Desktop/SC-Logo.png" style="width: 10%; height: 10%">
+            <h1 style="text-align: center; margin-top: auto; margin-bottom: auto; margin-left: 20%;" >Cartographie de la pollution marine</h1>
+        </div>
+    </head>
+
+    <body>
+        <div id="map" style="width: 99%; height: 720px; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;"></div>
+
+
+        <script>
+            var map = L.map('map').setView([35.62494, 139.775426], 18);
+            
+            var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 20,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1
+            }).addTo(map);
+            var circle = L.circle([44.8792, -0.5780], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 50
+            }).addTo(map);
+            function onMapClick(e) {
+                popup
+                    .setLatLng(e.latlng)
+                    .setContent('La température à cette position est de' + e.latlng.toString())
+                    .openOn(map);
+            }
+            
+        </script>
+    </body>
+
+</html>
