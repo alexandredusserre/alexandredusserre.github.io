@@ -3,15 +3,9 @@
 
     <head>
         <script>
-            function reqListen() {
-                console.log(this.responseText);
-            }
-
-            var oReq = new XMLHttpRequest();
-
-            oReq.open("GET", 'http://46.101.80.245:8080/test');
-            oReq.onload = reqListen;
-            oReq.send();
+            fetch('http://46.101.80.245:8080/test')
+            .then(res => res.json())
+            .then(data => console.log(data))
         </script>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
