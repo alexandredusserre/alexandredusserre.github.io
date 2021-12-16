@@ -42,7 +42,7 @@
             function onMapClick(e) {
                 popup
                     .setLatLng(e.latlng)
-                    .setContent('La température à cette position est de' + e.latlng.toString())
+                    .setContent('La température à cette position est de' + data.temp)
                     .openOn(map);
             }
             
