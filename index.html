@@ -25,14 +25,14 @@
             map.addLayer(circleGroup);
 
             const updateMap = () => {
-                fetch('http://46.101.80.245:8080/test')
+                fetch('http://46.101.80.245:8080/main-table')
                 .then(res => res.json())
                 .then((data) => {
                     console.log(data);
                     circleGroup.clearLayers();
                     for (let index in data) {
                         circleGroup.addLayer(
-                            L.circle([data[index].x, data[index].y], {
+                            L.circle([data[index].long, data[index].lat], {
                                 color: 'red',
                                 fillColor: '#f03',
                                 fillOpacity: 0.5,
